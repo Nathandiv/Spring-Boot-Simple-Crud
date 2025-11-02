@@ -18,10 +18,9 @@ public class UserController {
     private final UserService service;
 
     // CREATE
-    @PostMapping
+    @PostMapping                     // ← POST /api/users
     public ResponseEntity<User> create(@Valid @RequestBody User user) {
-        User created = service.create(user);
-        return ResponseEntity.status(201).body(created); // 201 Created
+        return ResponseEntity.status(201).body(service.create(user));
     }
 
     @GetMapping

@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Entity
+@Table(name = "users")  // ← Explicit name, avoids 'user' keyword
 @Data
 public class User {
     @Id
@@ -19,5 +20,4 @@ public class User {
     @Email(message = "Email must be valid")
     @Column(unique = true)
     private String email;
-
 }
